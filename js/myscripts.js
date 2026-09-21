@@ -11,16 +11,18 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let humanChoice = prompt("Enter your choice: ");   
+    let humanChoice = prompt("Rock, paper, or scissors: ");   
     humanChoice = humanChoice.toLocaleLowerCase(); 
-
+    console.log(humanChoice);
     if (humanChoice === 'r' || humanChoice === "rock") {
         humanChoice = 0;
     } else if (humanChoice === 'p' || humanChoice === "paper") {
         humanChoice = 1;
     } else if (humanChoice === 's' || humanChoice === "scissors") {
         humanChoice = 2;
-    } 
+    } else {
+        humanChoice = prompt("Try again. Invalid text. Rock, paper, or scissors: ");
+    }
 
     return humanChoice;
 }  
