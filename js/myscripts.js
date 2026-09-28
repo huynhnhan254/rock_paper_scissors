@@ -1,8 +1,12 @@
 let humanScore = 0;
 let computerScore = 0;
 const max = 3;
-const startButton = document.querySelector("#startButton")
-const log = document.querySelector("#log")
+let gamePlayStatus = false;
+// const startBtn = document.querySelector("#startBtn")
+const rockBtn = document.querySelector(".rockBtn");
+const paperBtn = document.querySelector(".paperBtn");
+const scissorsBtn = document.querySelector(".scissorsBtn");
+
 
 function getComputerChoice() {
     let compChoice = Math.floor(Math.random() * max);
@@ -48,12 +52,18 @@ function playRound(humanChoice, compChoice) {
     console.log(humanScore, computerScore);
 }
 
-startButton.addEventListener("click", ()=>{
-    for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice(i+1);
+function startGame() {
+    let startBtn = document.getElementById("startBtn");
+    let inGameBtn = document.getElementById("inGameBtn");
 
-        playRound(humanSelection, computerSelection);
-        console.log(i+1 + " times");
-    }
-});
+    startBtn.classList.add("hidden");
+    inGameBtn.classList.remove("hidden");
+}
+
+function exitGame() {
+    let startBtn = document.getElementById("startBtn");
+    let inGameBtn = document.getElementById("inGameBtn");
+
+    startBtn.classList.remove("hidden");
+    inGameBtn.classList.add("hidden");
+}
