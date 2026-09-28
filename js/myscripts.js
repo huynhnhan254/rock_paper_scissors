@@ -2,6 +2,8 @@ let humanScore = 0;
 let computerScore = 0;
 const max = 3;
 let gamePlayStatus = false;
+
+const display = document.querySelector("#display");
 const rockBtn = document.querySelector(".rockBtn");
 const paperBtn = document.querySelector(".paperBtn");
 const scissorsBtn = document.querySelector(".scissorsBtn");
@@ -32,18 +34,32 @@ function playRound(humanChoice, compChoice) {
     }
 
     let res = humanChoice - compChoice;
+    let roundResult = "";
+    display.classList.add("content");
 
     if (res === 0) {
         console.log("Tie");
+        roundResult = "Tie";
     } else if (res === 1) {
        humanScore++;
+       roundResult = "You Win!";
     } else if (res === -1) {
         computerScore++;
+        roundResult = "Computer Win";
     } else if (res === 2) {
         computerScore++;
+        roundResult = "Computer Win";
     } else if (res === -2) {
         humanScore++;
+        roundResult = "You Win";
     }
+
+    console.log("Human:", humanScore);
+    console.log("Computer:", computerScore);
+    display.textContent =
+        roundResult +
+        "\nHuman: " + humanScore +
+        "\nComputer: " + computerScore;
 
     if (humanScore === 5) {
         alert("Congratulation!!! You Win!!!");
@@ -53,8 +69,7 @@ function playRound(humanChoice, compChoice) {
         exitGame();
     }
 
-    console.log("Human:", humanScore);
-    console.log("Computer:", computerScore);
+    
 }
 
 function startGame() {
