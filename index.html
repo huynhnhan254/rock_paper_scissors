@@ -4,11 +4,28 @@
         <meta charset="UTF-8">
         <title>Mini Game</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
         <h1>Rock, Paper, Scissors Game</h1>
-        <button id="startButton">Game Start</button>
-        <pre id="log"></pre>
+        <div>
+            <button id="startBtn" onClick="startGame()">Game Start</button>
+
+            <div id="inGameBtn" class="hidden">
+                <div id="gameBtn">
+                    <button class="rockBtn">Rock</button>
+                    <button class="paperBtn">Paper</button>
+                    <button class="scissorsBtn">Scissors</button>
+                </div>
+    
+                <div id="exitBtn">
+                    <button class="Exit" onClick="exitGame()">Exit</button>
+                </div>
+            </div>
+            
+            <div id="log"></div>
+        </div>
+
         <script src="./js/myscripts.js"></script>
     </body>
     <footer></footer>
